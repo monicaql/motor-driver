@@ -1,5 +1,7 @@
 # motor-driver
 
+original repo: https://github.com/bgkatz/motorcontrol
+
 Changes so far:
 - in main.c:
 	- updated the flash variables to match the new motor driver repo
