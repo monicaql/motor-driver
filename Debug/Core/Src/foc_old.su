@@ -1,0 +1,15 @@
+../Core/Src/foc_old.c:17:6:set_dtc	32	static
+../Core/Src/foc_old.c:43:6:analog_sample	16	static
+../Core/Src/foc_old.c:70:6:abc	40	static
+../Core/Src/foc_old.c:84:6:dq0	40	static
+../Core/Src/foc_old.c:110:6:svm	64	static
+../Core/Src/foc_old.c:136:6:zero_current	32	static
+../Core/Src/foc_old.c:157:6:init_controller_params	24	static
+../Core/Src/foc_old.c:175:6:reset_foc	16	static
+../Core/Src/foc_old.c:194:6:reset_observer	16	static
+../Core/Src/foc_old.c:202:6:update_observer	16	static
+../Core/Src/foc_old.c:234:7:linearize_dtc	32	static
+../Core/Src/foc_old.c:243:6:field_weaken	16	static
+../Core/Src/foc_old.c:256:6:commutate	16	static
+../Core/Src/foc_old.c:314:6:torque_control	16	static
+../Core/Src/foc_old.c:324:6:zero_commands	16	static

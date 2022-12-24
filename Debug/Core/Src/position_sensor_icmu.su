@@ -1,0 +1,4 @@
+../Core/Src/position_sensor_icmu.c:18:6:Init	40	static
+../Core/Src/position_sensor_icmu.c:55:6:Sample	64	static
+../Core/Src/position_sensor_icmu.c:156:6:ZeroPosition	16	static
+../Core/Src/position_sensor_icmu.c:169:6:printCMUEncoder	40	static
