@@ -38,10 +38,8 @@
 		 case CALIBRATION_MODE:
 			 if(!comm_encoder_cal.done_ordering){
 				 order_phases(&new_encoder, &controller, &comm_encoder_cal, controller.loop_count);
-//				 order_phases(&comm_encoder, &controller, &comm_encoder_cal, controller.loop_count);
 			 }
 			 else if(!comm_encoder_cal.done_cal){
-//				 calibrate_encoder(&comm_encoder, &controller, &comm_encoder_cal, controller.loop_count);
 				 calibrate_encoder(&new_encoder, &controller, &comm_encoder_cal, controller.loop_count);
 			 }
 			 else{
@@ -49,10 +47,6 @@
 				 //for(int i = 0; i<128*PPAIRS; i++){printf("%d\r\n", error_array[i]);}
 				 E_ZERO = comm_encoder_cal.ezero;
 				 printf("E_ZERO: %d  %f\r\n", E_ZERO, TWO_PI_F*fmodf((new_encoder._ppairs*(float)(-E_ZERO))/((float)ENC_CPR), 1.0f));
-//				 printf("E_ZERO: %d  %f\r\n", E_ZERO, TWO_PI_F*fmodf((comm_encoder.ppairs*(float)(-E_ZERO))/((float)ENC_CPR), 1.0f));
-//				 memcpy(&comm_encoder.offset_lut, comm_encoder_cal.lut_arr, sizeof(comm_encoder.offset_lut));
-//				 memcpy(&ENCODER_LUT, comm_encoder_cal.lut_arr, sizeof(comm_encoder_cal.lut_arr));
-				 //for(int i = 0; i<128; i++){printf("%d\r\n", ENCODER_LUT[i]);}
 				 memcpy(&new_encoder.offset_lut, comm_encoder_cal.lut_arr, sizeof(new_encoder.offset_lut));
 				 memcpy(&ENCODER_LUT, comm_encoder_cal.lut_arr, sizeof(comm_encoder_cal.lut_arr));
 //				 for(int i = 0; i<128; i++){printf("%d\r\n", ENCODER_LUT[i]);}
@@ -74,7 +68,6 @@
 			 else{
 				 torque_control(&controller);
 				 field_weaken(&controller);
-//				 commutate(&controller, &comm_encoder);
 				 commutate(&controller, &new_encoder);
 			 }
 			 controller.timeout ++;
@@ -84,7 +77,6 @@
 			 break;
 
 		 case ENCODER_MODE:
-//			 ps_print(&comm_encoder, 100);
 			 printCMUEncoder(&new_encoder);
 			 Sample(&new_encoder, DT);
 
@@ -126,8 +118,6 @@
 				comm_encoder_cal.done_cal = 0;
 				comm_encoder_cal.done_ordering = 0;
 				comm_encoder_cal.started = 0;
-//				comm_encoder.e_zero = 0;
-//				memset(&comm_encoder.offset_lut, 0, sizeof(comm_encoder.offset_lut));
 				new_encoder.ElecOffset = 0;
 				memset(&new_encoder.offset_lut, 0, sizeof(new_encoder.offset_lut));
 				drv_enable_gd(drv);
@@ -205,10 +195,6 @@
 					fsmstate->ready = 0;
 					break;
 				case ZERO_CMD:
-//					comm_encoder.m_zero = 0;
-//					ps_sample(&comm_encoder, DT);
-//					int zero_count = comm_encoder.count;
-//					M_ZERO = zero_count;
 					ZeroPosition(&new_encoder);
 					M_ZERO = new_encoder.MechOffset;
 

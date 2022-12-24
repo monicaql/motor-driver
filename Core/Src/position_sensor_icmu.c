@@ -144,15 +144,6 @@ void Sample(EncoderCMUStruct * encoder, float dt){
 }
 
 
-//void SetElecOffset(EncoderCMUStruct *encoder, float offset){
-//    encoder->ElecOffset = offset;
-//}
-//void SetMechOffset(EncoderCMUStruct *encoder, float offset){
-//	encoder->MechOffset = offset;
-//    encoder->first_sample = 0;
-//}
-//
-//
 void ZeroPosition(EncoderCMUStruct * encoder){
 	encoder->rotations = 0;
 	encoder->MechOffset = 0;
